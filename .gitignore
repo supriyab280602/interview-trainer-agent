@@ -1,0 +1,16 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (CRITICAL: Do NOT leak credentials)
+.env
+
+# Database and local state files
+local_db.json
+chroma_db/
+uploads/
+
+# OS and build artifacts
+.DS_Store
+Thumbs.db
