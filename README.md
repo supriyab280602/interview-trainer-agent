@@ -12,7 +12,7 @@ An advanced, production-grade AI Interview Trainer Agent built using Retrieval-A
 - **Session-Based Authentication**: Secure registration and password hashing using `bcrypt` backed by Cloudant sessions.
 - **Performance Analytics Center**: Interactive Plotly tracking of user scores timeline, completed rates, strongest/weakest topics, and custom study plans.
 - **Printable PDF Reports**: Exporter compiling candidate responses, grading scores, constructive tips, and model answers using `fpdf2`.
-- **Resilient Fallback Mode**: Instantly runs out-of-the-box using local mock fallbacks for watsonx, Cloudant, and COS if credentials are not yet configured.
+- **Local Database & Storage Fallbacks**: Automatically falls back to local JSON database storage and local folder uploads if Cloudant or Cloud Object Storage (COS) credentials are not yet configured, allowing you to run database features locally.
 
 ---
 
