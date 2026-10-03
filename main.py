@@ -140,7 +140,7 @@ async def lifespan(app: FastAPI):
 # Instantiate FastAPI Application
 app = FastAPI(
     title=settings.APP_NAME,
-    description="FastAPI Backend for IBM Internship Challenge AI Interview Trainer Agent",
+    description="FastAPI Backend for Inferexa AI Interview Trainer Agent",
     version="1.0.0",
     lifespan=lifespan
 )

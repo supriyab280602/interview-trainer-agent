@@ -11,7 +11,7 @@ from typing import Optional
 
 # Set page configurations
 st.set_page_config(
-    page_title="IBM watsonx AI - Interview Trainer Agent",
+    page_title="Inferexa - AI Interview Trainer Agent",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"

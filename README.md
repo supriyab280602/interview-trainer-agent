@@ -1,6 +1,6 @@
-# IBM watsonx AI - Interview Trainer Agent
+# Inferexa - Next-Gen AI Interview Trainer Agent
 
-An advanced, production-grade AI Interview Trainer Agent built using Retrieval-Augmented Generation (RAG). Developed using FastAPI for the backend service layer and Streamlit for a modern, premium SaaS frontend experience. The application uses the **IBM Granite-3-8b-instruct** foundation model via the official `ibm-watsonx-ai` SDK and integrates with IBM Cloud Object Storage (COS) and IBM Cloudant NoSQL database.
+**Inferexa** is an advanced, production-grade AI Interview Trainer Agent built using Retrieval-Augmented Generation (RAG). Developed using FastAPI for the backend service layer and Streamlit for a modern, premium SaaS frontend experience. The application leverages the **IBM Granite** foundation model via the official `ibm-watsonx-ai` SDK and integrates with IBM Cloudant NoSQL database and IBM Cloud Object Storage (COS).
 
 ---
 
@@ -19,7 +19,7 @@ An advanced, production-grade AI Interview Trainer Agent built using Retrieval-A
 ## Project Structure
 
 ```
-InterviewTrainer/
+Inferexa/
 ├── app.py                     # Premium Streamlit UI Client
 ├── main.py                    # FastAPI Backend Application Server
 ├── engine.py                  # IBM Granite Engine (watsonx SDK)
@@ -63,18 +63,20 @@ InterviewTrainer/
 
 ## Prerequisites
 
-- **Python 3.12 or 3.14**
+- **Python 3.10+** (Python 3.12/3.14 compatible)
 - **pip** package installer
 
 ---
 
 ## Installation & Setup
 
-1. **Clone/Open workspace**:
-   Navigate to the project root directory.
+1. **Clone workspace**:
+   ```bash
+   git clone https://github.com/supriyab280602/interview-trainer-agent.git
+   cd interview-trainer-agent
+   ```
 
-2. **Install Package Dependencies**:
-
+2. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
@@ -90,30 +92,28 @@ InterviewTrainer/
 ## IBM Cloud Services Configuration
 
 ### 1. IBM watsonx.ai
-
 1. Go to the [IBM Cloud Console](https://cloud.ibm.com/) and create a **watsonx.ai** instance.
 2. Open the watsonx console, create a new Project, and retrieve the **Project ID** from the project _Settings_ tab.
-3. Obtain an IAM API key from _Manage > Access (IAM) > API keys_.
-4. Populate `IBM_CLOUD_API_KEY`, `IBM_PROJECT_ID`, and `IBM_ENDPOINT_URL` in `.env`.
+3. Link a **Watson Machine Learning** service instance under _Manage > Associated Services_.
+4. Obtain an IAM API key from _Manage > Access (IAM) > API keys_.
+5. Populate `IBM_CLOUD_API_KEY`, `IBM_PROJECT_ID`, and `IBM_ENDPOINT_URL` in `.env`.
 
 ### 2. IBM Cloudant (NoSQL DB)
-
-1. Search and deploy a **Cloudant** instance in your Cloud account (Select the _IAM and Cloudant credentials_ authentication option).
+1. Search and deploy a **Cloudant** instance in your Cloud account.
 2. Go to the Cloudant Service Credentials tab, create credentials, and copy the `url` and `apikey`.
 3. Populate `IBM_CLOUDANT_URL` and `IBM_CLOUDANT_API_KEY` in `.env`.
 
-### 3. IBM Cloud Object Storage (COS)
-
+### 3. IBM Cloud Object Storage (COS) - Optional
 1. Deploy a **Cloud Object Storage** instance.
-2. Create a bucket (e.g. `interview-trainer-resumes`) and set the regional endpoint URL.
+2. Create a bucket and set the regional endpoint URL.
 3. Generate Service Credentials with _Writer_ role and enable _HMAC credentials_.
-4. Populate `IBM_COS_API_KEY`, `IBM_COS_ENDPOINT`, and `IBM_COS_BUCKET` in `.env`.
+4. Populate `IBM_COS_API_KEY`, `IBM_COS_ENDPOINT`, and `IBM_COS_BUCKET` in `.env` (or leave empty for local file storage fallback).
 
 ---
 
 ## Execution Instructions
 
-The backend and frontend are run concurrently on separate ports:
+The backend and frontend are run concurrently:
 
 ### 1. Launch FastAPI Backend
 
@@ -123,7 +123,7 @@ Launch the server using Uvicorn:
 uvicorn main:app --reload
 ```
 
-The backend server runs at `http://localhost:8000`. You can inspect automated Swagger API documentations at `http://localhost:8000/docs`.
+The backend server runs at `http://localhost:8000`. You can inspect automated Swagger API documentation at `http://localhost:8000/docs`.
 
 ### 2. Launch Streamlit Frontend
 

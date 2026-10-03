@@ -14,3 +14,6 @@ uploads/
 # OS and build artifacts
 .DS_Store
 Thumbs.db
+node_modules/
+.next/
+

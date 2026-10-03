@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     # Application Security & Info
     SECRET_KEY: str = "super-secret-session-key-12345"
-    APP_NAME: str = "IBM Interview Trainer Agent"
+    APP_NAME: str = "Inferexa - AI Interview Trainer Agent"
     DEBUG: bool = False
     PORT: int = 8000
     HOST: str = "0.0.0.0"
